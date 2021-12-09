@@ -52,7 +52,7 @@ class Rubrularavel
             'captcha' => '',
         ];
 
-        $result = Rubru::post('/authenticate', $params);
+        $result = Rubru::call('/authenticate', $params, 'POST');
 
         if ($result['id_token']) {
             $rls = RubrularavelSetting::first();
