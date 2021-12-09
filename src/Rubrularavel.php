@@ -28,7 +28,7 @@ class Rubrularavel
         }
     }
 
-    public function sendRequest($path, $params, $method = 'POST')
+    public function callRequest($path, $params, $method = 'POST')
     {
         $headers = [
             'Authorization: Bearer ' . $this->_token,
