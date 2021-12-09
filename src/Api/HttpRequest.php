@@ -68,7 +68,8 @@ class HttpRequest
         $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
         if ($http_code !== 200) {
-            throw new HttpException('HTTP Error', $http_code);
+            // throw new HttpException('HTTP Error', $http_code);
+            return json_decode($response, true);
         }
 
         // decode JSON response
