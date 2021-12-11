@@ -35,7 +35,7 @@ class Rubrularavel
         ];
 
         $result = Rubru::call($path, $params, $method, $headers);
-        if ((isset($result['error']) && $result['code'] == 401) || (isset($result['status']) && $result['status'] == 401)) {
+        if (isset($result['status']) && $result['status'] == 401) {
             $this->login();
             $result = Rubru::call($path, $params, $method, $headers);
         }
