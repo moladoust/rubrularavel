@@ -36,7 +36,10 @@ class Rubrularavel
 
         $result = Rubru::call($path, $params, $method, $headers);
         if (isset($result['status']) && $result['status'] == 401) {
-            $this->login();
+            $this->_token = $this->login();
+            $headers = [
+                'Authorization: Bearer ' . $this->_token,
+            ];
             $result = Rubru::call($path, $params, $method, $headers);
         }
 
